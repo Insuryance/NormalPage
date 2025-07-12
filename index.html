@@ -109,7 +109,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 800px;
+      max-width: 100%;
       width: 100%;
     }
 
@@ -118,7 +118,7 @@
       height: 150px;
       border-radius: 50%;
       margin-bottom: 1rem;
-      border: 4px solid rgba(255, 255, 255, 0.3);
+      border: 6px solid rgba(255, 255, 255, 0.3);
       background: linear-gradient(135deg, #667eea, #764ba2);
       display: flex;
       align-items: center;
@@ -143,6 +143,9 @@
       margin-bottom: 1rem;
       color: white;
       letter-spacing: -0.02em;
+      word-wrap: break-word;
+      text-align: center;
+
     }
 
     .hero p {
@@ -195,15 +198,15 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
-    .social {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-
+      .social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+   }
     .social a {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       display: flex;
@@ -211,7 +214,7 @@
       justify-content: center;
       color: white;
       text-decoration: none;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -608,8 +611,8 @@
       }
       
       .profile-image {
-        width: 120px;
-        height: 120px;
+        width: 180px;
+        height: 180px;
       }
       
       .section-title {
@@ -653,9 +656,46 @@
     /* Tilt Effect */
     .tilt-card {
       transform-style: preserve-3d;
-      transition: transform 0.1s ease-out;
+        transition: transform 0.1s ease-out;
+      }
+      .section-hover-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .section-hover-effect::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    width: 4px;
+    height: 200%;
+    background: linear-gradient(to bottom, #facc15, #f59e0b, transparent);
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+  }
+  
+  .section-hover-effect:hover::before {
+    top: 0;
+    opacity: 1;
+    animation: bolt-strike 0.6s ease-out;
+  }
+  
+  @keyframes bolt-strike {
+    0% {
+      top: -100%;
+      opacity: 0;
     }
-
+    30% {
+      top: 0%;
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
     /* Highlighted skill */
     .skill-tag.highlighted {
       background: #3b82f6;
@@ -679,7 +719,7 @@
       <div class="profile-image">
         <img src="assets/SuryaNarayana.jpg" alt="Profile" style="width: 100%; height: 100%; border-radius: 50%;" />
       </div>
-      <div class="profile-description">The Sun God Circa 1740-50.</div>
+      <div class="profile-description section-hover-effect">The Sun God Circa 1740-50.</div>
       <h1>Suryansham Tiwari</h1>
       <p>Founder - Stealth [AI X FinTech] <br>I've been one of the early birds for the Insurance Category at PhonePe, and ever since, I've been hooked on all things BFSI and beyond. I thrive on building innovative financial products that make a real impact.</p>
       <div class="actions">
@@ -820,7 +860,7 @@
           <div class="skill-category tilt-card">
             <div class="skill-header">
               <span class="skill-icon">💻</span>
-              <h3 class="skill-title">Technical Skills</h3>
+              <h3 class="skill-title section-hover-effect">Technical Skills</h3>
             </div>
             <div class="skill-tags">
               <span class="skill-tag">Java</span>
@@ -838,7 +878,7 @@
           <div class="skill-category tilt-card">
             <div class="skill-header">
               <span class="skill-icon">🤔</span>
-              <h3 class="skill-title">Strategic Soft Skills</h3>
+              <h3 class="skill-title section-hover-effect">Strategic Soft Skills</h3>
             </div>
             <div class="skill-tags">
               <span class="skill-tag">Strategic Planning & Forecasting</span>
@@ -854,7 +894,7 @@
           <div class="skill-category tilt-card">
             <div class="skill-header">
               <span class="skill-icon">📜</span>
-              <h3 class="skill-title">Internship Experiences</h3>
+              <h3 class="skill-title section-hover-effect">Internship Experiences</h3>
             </div>
             <div class="skill-tags">
               <span class="skill-tag">Product & Analytics Intern, RadicalX</span>
@@ -868,7 +908,7 @@
         </div>
       </section>
 
-      <section class="education">
+      <section class="education section-hover-effect">
         <h2 class="section-title">
           Education
           <div class="electricity-bg">
@@ -891,7 +931,7 @@
         </div>
         </section>
         <!-- Look! No broken <h2</h2> tag here anymore! -->
-          <section class="education">
+          <section class="education section-hover-effect">
         <h2 class="section-title"></h2>
         <div class="education-card tilt-card">
           <h3 class="education-title">Indian Institute of Technology Delhi</h3>
