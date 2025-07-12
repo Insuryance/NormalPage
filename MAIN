@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashwani Prasad – Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Particle Background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 2rem;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+      margin: 0 auto 2rem;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 3rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .social {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .social a {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .social a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Main Content */
+    .main-content {
+      position: relative;
+      z-index: 2;
+      background: #0f172a;
+      padding: 4rem 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #8b5cf6;
+      letter-spacing: -0.02em;
+    }
+
+    /* Experience Cards */
+    .experience-card {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .company-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .company-logo {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .company-info h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.25rem;
+    }
+
+    .job-title {
+      color: #8b5cf6;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .duration {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .focus-section {
+      background: rgba(139, 92, 246, 0.1);
+      border-left: 4px solid #8b5cf6;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    .focus-title {
+      color: #8b5cf6;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .metric {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #22c55e;
+      display: block;
+    }
+
+    .metric-label {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tech-tag {
+      background: #334155;
+      color: #94a3b8;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .skill-category {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .skill-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4);
+    }
+
+    .skill-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-icon {
+      font-size: 1.5rem;
+    }
+
+    .skill-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-tag {
+      background: #475569;
+      color: #f1f5f9;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid rgba(241, 245, 249, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: #8b5cf6;
+      transform: translateY(-2px);
+    }
+
+    /* Education Section */
+    .education-card {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .education-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+    }
+
+    .education-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .education-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .degree {
+      color: #06b6d4;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-duration {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .gpa {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+
+    .gpa-label {
+      color: #22c55e;
+      font-weight: 600;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Tilt Effect */
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.1s ease-out;
+    }
+
+    /* Highlighted skill */
+    .skill-tag.highlighted {
+      background: #3b82f6;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  
+  <header class="hero">
+    <div class="hero-content">
+      <div class="profile-image">AP</div>
+      <h1>Ashwani Prasad</h1>
+      <p>Senior Software Engineer<br>Passionate software engineer with 5+ years of experience building scalable, fault-tolerant platforms using microservice architecture. Specialized in backend systems, API design, and high-performance applications.</p>
+      <div class="actions">
+        <a href="#" class="btn btn-primary">✓ View My Work</a>
+        <a href="#" class="btn btn-secondary">⬇ Download Resume</a>
+      </div>
+      <div class="social">
+        <a href="mailto:ashwani@example.com">📧</a>
+        <a href="https://www.linkedin.com/in/ashwaniprasad" target="_blank">💼</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section class="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="experience-card tilt-card">
+          <div class="company-header">
+            <div class="company-logo">SM</div>
+            <div class="company-info">
+              <h3>Super.Money</h3>
+              <div class="job-title">Software Engineer III</div>
+              <div class="duration">Feb 2025 - Present • Bangalore, IN</div>
+            </div>
+          </div>
+          
+          <div class="focus-section">
+            <div class="focus-title">Focus: Customer Onboarding & API Gateway</div>
+            <p>Building scalable platforms for seamless customer onboarding and optimizing conversion funnels. Working on API gateway enhancements with custom security and throughput management capabilities.</p>
+          </div>
+          
+          <div class="tech-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">SpringBoot</span>
+            <span class="tech-tag">API Gateway</span>
+            <span class="tech-tag">Microservices</span>
+          </div>
+        </div>
+
+        <div class="experience-card tilt-card">
+          <div class="company-header">
+            <div class="company-logo">CR</div>
+            <div class="company-info">
+              <h3>CRED</h3>
+              <div class="job-title">Software Engineer II</div>
+              <div class="duration">Nov 2022 - Feb 2025 • Bangalore, IN</div>
+            </div>
+          </div>
+          
+          <div class="focus-section">
+            <div class="focus-title">Focus: Financial Products & Platform Engineering</div>
+            <p>Led development of BNPL, term loans, and loan against securities products. Built the multi-tenant fee processing platform handling 4B+ monthly transactions. Spearheaded 0-to-1 product development serving 8M+ users while optimizing infrastructure costs by 31%.</p>
+          </div>
+          
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-value">4B+</span>
+              <span class="metric-label">Monthly transactions processed</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">8M+</span>
+              <span class="metric-label">Users served</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">31%</span>
+              <span class="metric-label">AWS cost savings achieved</span>
+            </div>
+          </div>
+          
+          <div class="tech-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Google Guice</span>
+            <span class="tech-tag">gRPC</span>
+            <span class="tech-tag">AWS SQS</span>
+            <span class="tech-tag">Databricks</span>
+            <span class="tech-tag">DynamoDB</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        
+        <div class="skills-grid">
+          <div class="skill-category tilt-card">
+            <div class="skill-header">
+              <span class="skill-icon">💻</span>
+              <h3 class="skill-title">Languages & Frameworks</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">SpringBoot</span>
+              <span class="skill-tag">Google Guice DI</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">gRPC</span>
+              <span class="skill-tag">REST APIs</span>
+            </div>
+          </div>
+
+          <div class="skill-category tilt-card">
+            <div class="skill-header">
+              <span class="skill-icon">🗃️</span>
+              <h3 class="skill-title">Databases & Technologies</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">DynamoDB</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">AWS SQS</span>
+              <span class="skill-tag">AWS S3</span>
+              <span class="skill-tag highlighted">Kafka</span>
+              <span class="skill-tag">Databricks</span>
+            </div>
+          </div>
+
+          <div class="skill-category tilt-card">
+            <div class="skill-header">
+              <span class="skill-icon">🏗️</span>
+              <h3 class="skill-title">Architecture & Design</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Microservices</span>
+              <span class="skill-tag">API Design</span>
+              <span class="skill-tag">System Design</span>
+              <span class="skill-tag">Fault Tolerance</span>
+              <span class="skill-tag">Performance Optimization</span>
+              <span class="skill-tag">Load Testing</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="education">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="education-card tilt-card">
+          <h3 class="education-title">Govind Ballav Pant Engineering College</h3>
+          <div class="degree">Bachelor of Technology in Computer Science</div>
+          <div class="education-duration">2016 - 2020 • New Delhi, India</div>
+          <div class="gpa">
+            <span class="gpa-label">CGPA: 7.4/10</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Particle.js configuration
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: '#8b5cf6'
+        },
+        shape: {
+          type: 'circle'
+        },
+        opacity: {
+          value: 0.5,
+          random: false
+        },
+        size: {
+          value: 3,
+          random: true
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#8b5cf6',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: {
+            enable: true,
+            mode: 'grab'
+          },
+          onclick: {
+            enable: true,
+            mode: 'push'
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 140,
+            line_linked: {
+              opacity: 1
+            }
+          },
+          push: {
+            particles_nb: 4
+          }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Tilt effect for cards
+    function addTiltEffect(element) {
+      element.addEventListener('mousemove', (e) => {
+        const rect = element.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / centerY * -10;
+        const rotateY = (x - centerX) / centerX * 10;
+        
+        element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      
+      element.addEventListener('mouseleave', () => {
+        element.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    }
+
+    // Apply tilt effect to all cards
+    document.querySelectorAll('.tilt-card').forEach(addTiltEffect);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
