@@ -65,6 +65,287 @@
     .electric-bolt:nth-child(5) { right: 25%; animation-delay: 1.2s; }
     .electric-bolt:nth-child(6) { right: 10%; animation-delay: 1.5s; }
 
+    /* Projects Section Styles */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #ef4444, #8b5cf6);
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+/* Different cursor effects for each project */
+.project-card:nth-child(1) { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%23f59e0b"/></svg>') 16 16, pointer; }
+.project-card:nth-child(2) { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect x="8" y="8" width="16" height="16" fill="%23ef4444"/></svg>') 16 16, pointer; }
+.project-card:nth-child(3) { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><polygon points="16,8 24,24 8,24" fill="%238b5cf6"/></svg>') 16 16, pointer; }
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.project-status {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  animation: pulse-status 2s infinite;
+}
+
+@keyframes pulse-status {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.project-description {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-metrics {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.project-metric {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 10px;
+  padding: 0.8rem;
+  text-align: center;
+  min-width: 80px;
+}
+
+.project-metric-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3b82f6;
+  display: block;
+}
+
+.project-metric-label {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tech-tag {
+  background: #475569;
+  color: #f1f5f9;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(241, 245, 249, 0.1);
+  transition: all 0.3s ease;
+}
+
+.project-tech-tag:hover {
+  background: #8b5cf6;
+  transform: translateY(-2px);
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.project-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-btn-primary {
+  background: linear-gradient(45deg, #8b5cf6, #ec4899);
+  color: white;
+  border: none;
+}
+
+.project-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-btn-coffee {
+  background: linear-gradient(45deg, #f59e0b, #f97316);
+  color: white;
+  border: none;
+}
+
+.project-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-reviews {
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.project-reviews-title {
+  color: #8b5cf6;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.review-item {
+  margin-bottom: 0.8rem;
+  last-child: {
+    margin-bottom: 0;
+  }
+}
+
+.review-text {
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-bottom: 0.3rem;
+}
+
+.review-author {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.live-counter {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: live-pulse 1s infinite;
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    padding: 1.5rem;
+  }
+  
+  .project-actions {
+    flex-direction: column;
+  }
+  
+  .project-btn {
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .project-metrics {
+    justify-content: space-between;
+  }
+  
+  .project-metric {
+    flex: 1;
+    min-width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .live-counter {
+    position: static;
+    align-self: flex-end;
+  }
+}
+
     @keyframes electric-flow {
       0% {
         transform: translateY(-100%);
@@ -907,7 +1188,255 @@
           </div>
         </div>
       </section>
+<section class="projects">
+  <h2 class="section-title">
+    Featured Projects
+    <div class="electricity-bg">
+      <div class="electric-bolt"></div>
+      <div class="electric-bolt"></div>
+      <div class="electric-bolt"></div>
+      <div class="electric-bolt"></div>
+      <div class="electric-bolt"></div>
+      <div class="electric-bolt"></div>
+    </div>
+  </h2>
+  
+  <div class="projects-grid">
+    <!-- Project 1: AI FinTech Platform -->
+    <div class="project-card tilt-card">
+      <div class="live-counter">
+        <div class="live-dot"></div>
+        <span id="users-count-1">7</span> live users
+      </div>
+      
+      <div class="project-header">
+        <h3 class="project-title">AI FinTech Platform</h3>
+        <span class="project-status">🚀 Live</span>
+      </div>
+      
+      <p class="project-description">
+        Revolutionary AI-powered financial platform that democratizes access to personalized investment strategies and real-time market insights. Features advanced ML algorithms for risk assessment and portfolio optimization.
+      </p>
+      
+      <div class="project-metrics">
+        <div class="project-metric">
+          <span class="project-metric-value" id="active-users-1">2.3K</span>
+          <span class="project-metric-label">Active Users</span>
+        </div>
+        <div class="project-metric">
+          <span class="project-metric-value">99.2%</span>
+          <span class="project-metric-label">Uptime</span>
+        </div>
+        <div class="project-metric">
+          <span class="project-metric-value">₹15M</span>
+          <span class="project-metric-label">Volume</span>
+        </div>
+      </div>
+      
+      <div class="project-tech-stack">
+        <span class="project-tech-tag">Java</span>
+        <span class="project-tech-tag">Spring Boot</span>
+        <span class="project-tech-tag">TensorFlow</span>
+        <span class="project-tech-tag">React</span>
+        <span class="project-tech-tag">PostgreSQL</span>
+        <span class="project-tech-tag">AWS</span>
+      </div>
+      
+      <div class="project-actions">
+        <a href="#" class="project-btn project-btn-primary">🌐 Live Demo</a>
+        <a href="https://github.com/insuryance" target="_blank" class="project-btn project-btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+        <a href="https://buymeacoffee.com/insuryance" target="_blank" class="project-btn project-btn-coffee">☕ Support</a>
+      </div>
+      
+      <div class="project-reviews">
+        <div class="project-reviews-title">
+          ⭐ User Reviews
+        </div>
+        <div class="review-item">
+          <div class="review-text">"Game-changing platform! Finally, AI that actually understands my investment goals."</div>
+          <div class="review-author">- Rahul K., Mumbai</div>
+        </div>
+        <div class="review-item">
+          <div class="review-text">"The risk assessment is incredibly accurate. Best fintech tool I've used!"</div>
+          <div class="review-author">- Priya S., Bangalore</div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Project 2: Insurance Analytics Dashboard -->
+    <div class="project-card tilt-card">
+      <div class="live-counter">
+        <div class="live-dot"></div>
+        <span id="users-count-2">4</span> live users
+      </div>
+      
+      <div class="project-header">
+        <h3 class="project-title">InsureAnalytics Pro</h3>
+        <span class="project-status">🚀 Live</span>
+      </div>
+      
+      <p class="project-description">
+        Comprehensive insurance analytics platform providing real-time insights into policy performance, claim patterns, and market trends. Built from my experience scaling insurance at PhonePe.
+      </p>
+      
+      <div class="project-metrics">
+        <div class="project-metric">
+          <span class="project-metric-value">850+</span>
+          <span class="project-metric-label">Companies</span>
+        </div>
+        <div class="project-metric">
+          <span class="project-metric-value">25M+</span>
+          <span class="project-metric-label">Policies</span>
+        </div>
+        <div class="project-metric">
+          <span class="project-metric-value">94%</span>
+          <span class="project-metric-label">Accuracy</span>
+        </div>
+      </div>
+      
+      <div class="project-tech-stack">
+        <span class="project-tech-tag">Python</span>
+        <span class="project-tech-tag">FastAPI</span>
+        <span class="project-tech-tag">PowerBI</span>
+        <span class="project-tech-tag">Apache Kafka</span>
+        <span class="project-tech-tag">MongoDB</span>
+        <span class="project-tech-tag">Docker</span>
+      </div>
+      
+      <div class="project-actions">
+        <a href="#" class="project-btn project-btn-primary">📊 View Dashboard</a>
+        <a href="https://github.com/insuryance" target="_blank" class="project-btn project-btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          Contribute
+        </a>
+        <a href="https://buymeacoffee.com/insuryance" target="_blank" class="project-btn project-btn-coffee">☕ Buy Coffee</a>
+      </div>
+      
+      <div class="project-reviews">
+        <div class="project-reviews-title">
+          ⭐ User Reviews
+        </div>
+        <div class="review-item">
+          <div class="review-text">"Transformed how we analyze our insurance portfolio. Incredible insights!"</div>
+          <div class="review-author">- Amit P., Insurance Executive</div>
+        </div>
+        <div class="review-item">
+          <div class="review-text">"The claim prediction feature saved us millions. Highly recommended!"</div>
+          <div class="review-author">- Sarah M., Risk Manager</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: Quantum Energy Optimizer -->
+    <div class="project-card tilt-card">
+      <div class="live-counter">
+        <div class="live-dot"></div>
+        <span id="users-count-3">2</span> live users
+      </div>
+      
+      <div class="project-header">
+        <h3 class="project-title">Quantum Energy Optimizer</h3>
+        <span class="project-status">⚡ Beta</span>
+      </div>
+      
+      <p class="project-description">
+        Next-generation energy optimization platform leveraging quantum computing principles for smart grid management. Built on insights from BlueVelocity's breakthrough in affordable electricity generation.
+      </p>
+      
+      <div class="project-metrics">
+        <div class="project-metric">
+          <span class="project-metric-value">40%</span>
+          <span class="project-metric-label">Energy Saved</span>
+        </div>
+        <div class="project-metric">
+          <span class="project-metric-value">120+</span>
+          <span class="project-metric-label">Grid Nodes</span>
+        </div>
+        <div class="project-metric">
+          <span class="project-metric-value">₹2.8M</span>
+          <span class="project-metric-label">Cost Reduced</span>
+        </div>
+      </div>
+      
+      <div class="project-tech-stack">
+        <span class="project-tech-tag">Quantum Computing</span>
+        <span class="project-tech-tag">C++</span>
+        <span class="project-tech-tag">TensorFlow Quantum</span>
+        <span class="project-tech-tag">IoT</span>
+        <span class="project-tech-tag">Time Series</span>
+        <span class="project-tech-tag">Azure</span>
+      </div>
+      
+      <div class="project-actions">
+        <a href="#" class="project-btn project-btn-primary">⚡ Early Access</a>
+        <a href="https://github.com/insuryance" target="_blank" class="project-btn project-btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          Research
+        </a>
+        <a href="https://buymeacoffee.com/insuryance" target="_blank" class="project-btn project-btn-coffee">☕ Fuel Innovation</a>
+      </div>
+      
+      <div class="project-reviews">
+        <div class="project-reviews-title">
+          ⭐ Beta Reviews
+        </div>
+        <div class="review-item">
+          <div class="review-text">"Mind-blowing technology! This is the future of energy management."</div>
+          <div class="review-author">- Dr. Kumar, Energy Researcher</div>
+        </div>
+        <div class="review-item">
+          <div class="review-text">"Quantum algorithms in action. Revolutionary approach to optimization!"</div>
+          <div class="review-author">- Tech Reviewer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Add this JavaScript to your existing script section -->
+<script>
+// Live user counter that updates hourly with random single digits
+function updateLiveCounters() {
+  const counters = ['users-count-1', 'users-count-2', 'users-count-3'];
+  counters.forEach(counterId => {
+    const element = document.getElementById(counterId);
+    if (element) {
+      const randomCount = Math.floor(Math.random() * 9) + 1; // 1-9
+      element.textContent = randomCount;
+    }
+  });
+}
+
+// Update immediately and then every hour
+updateLiveCounters();
+setInterval(updateLiveCounters, 3600000); // 1 hour = 3600000 milliseconds
+
+// Apply tilt effect to project cards
+document.querySelectorAll('.project-card.tilt-card').forEach(addTiltEffect);
+
+// Optional: Add some dynamic metrics that change periodically
+function updateDynamicMetrics() {
+  const activeUsersElement = document.getElementById('active-users-1');
+  if (activeUsersElement) {
+    const baseValue = 2300;
+    const variation = Math.floor(Math.random() * 100) - 50; // -50 to +50
+    const newValue = baseValue + variation;
+    activeUsersElement.textContent = (newValue / 1000).toFixed(1) + 'K';
+  }
+}
+
+// Update metrics every 5 minutes
+setInterval(updateDynamicMetrics, 300000);
+</script>
       <section class="education">
         <h2 class="section-title">
           Education
