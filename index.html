@@ -969,6 +969,153 @@
       height: auto;
       object-fit: cover;
     }
+    /* Hobbies Section */
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.hobby-card {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hobby-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #ef4444, #8b5cf6, #06b6d4);
+}
+
+.hobby-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+.hobby-video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  background: #000;
+}
+
+.hobby-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+.hobby-title {
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.hobby-description {
+  color: #94a3b8;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.hobby-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.hobby-stat {
+  text-align: center;
+}
+
+.hobby-stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #8b5cf6;
+  display: block;
+}
+
+.hobby-stat-label {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.hobby-category-tag {
+  background: rgba(139, 92, 246, 0.2);
+  color: #8b5cf6;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design for Hobbies */
+@media (max-width: 768px) {
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .hobby-card {
+    padding: 1.5rem;
+  }
+  
+  .hobby-stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .hobby-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(139, 92, 246, 0.1);
+    padding: 0.8rem;
+    border-radius: 8px;
+  }
+  
+  .hobby-stat-value {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hobby-video-container {
+    margin-bottom: 1rem;
+  }
+  
+  .hobby-card {
+    padding: 1.2rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -1511,6 +1658,130 @@ setInterval(updateDynamicMetrics, 300000);
         </div>
       </section>
     </div>
+    <section class="hobbies">
+  <h2 class="section-title">
+    <br>
+    Hobbies & Interests
+  </h2>
+  
+  <div class="hobbies-grid">
+    <!-- Hobby 1: Tech Content -->
+    <div class="hobby-card tilt-card">
+      <div class="hobby-category-tag">Classical Music - Megh Malhar</div>
+      <div class="hobby-video-container">
+        <iframe src="https://www.youtube.com/watch?v=frwg38Ur-NY" 
+                title="Garaj Garaj - Pt Ajoy" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <h3 class="hobby-title">Megh Malhar - Garaj Garaj</h3>
+      <p class="hobby-description">
+        Raag Malhar is a Hindustani classical raga associated with the rainy season and torrential rains.  
+      </p>
+      <div class="hobby-stats">
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">50K+</span>
+          <span class="hobby-stat-label">Views</span>
+        </div>
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">2.5K</span>
+          <span class="hobby-stat-label">Subscribers</span>
+        </div>
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">15</span>
+          <span class="hobby-stat-label">Videos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hobby 2: Travel Vlogs -->
+    <div class="hobby-card tilt-card">
+      <div class="hobby-category-tag">Classical Music - Raag Tilak Kamod</div>
+      <div class="hobby-video-container">
+        <iframe src="https://www.youtube.com/watch?v=wioUZhifTs4&list=RDwioUZhifTs4&start_radio=1" 
+                title="Tilak Kamod - Vekantesh Kumar" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <h3 class="hobby-title">Raag Tilak Kamod - Damaru Baje</h3>
+      <p class="hobby-description">
+        Raag Bageshri is a Hindustani classical raga, known for its melodious and soothing mood, often associated with the emotion of joy, playfulness, and devotion.
+      </p>
+      <div class="hobby-stats">
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">25K+</span>
+          <span class="hobby-stat-label">Views</span>
+        </div>
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">1.8K</span>
+          <span class="hobby-stat-label">Subscribers</span>
+        </div>
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">12</span>
+          <span class="hobby-stat-label">Countries</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hobby 3: Music Production -->
+    <div class="hobby-card tilt-card">
+      <div class="hobby-category-tag">Working On New Products</div>
+      <div class="hobby-video-container">
+        <iframe src="https://www.youtube.com/watch?v=_kdIV11r0-8" 
+                title="BlackBerry - World's Smallest Terminal Scene" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <h3 class="hobby-title">Building New Innovative Products</h3>
+      <p class="hobby-description">
+        Tinkering around new spaces, niches and friction points to solve problems with unique and scalable solutions.
+      </p>
+      <div class="hobby-stats">
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">18K+</span>
+          <span class="hobby-stat-label">Views</span>
+        </div>
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">900</span>
+          <span class="hobby-stat-label">Subscribers</span>
+        </div>
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">8</span>
+          <span class="hobby-stat-label">Tracks</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hobby 4: Fitness & Lifestyle -->
+    <div class="hobby-card tilt-card">
+      <div class="hobby-category-tag">Cricket</div>
+      <div class="hobby-video-container">
+        <iframe src="https://www.youtube.com/watch?v=EGBLSbeiEzs" 
+                title="India Vs England - 2025" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <h3 class="hobby-title">Binge Cricket Watches</h3>
+      <p class="hobby-description">
+        I spent few odd hours to watch cricket matches majorly of England, India and Australia.
+      </p>
+      <div class="hobby-stats">
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">35K+</span>
+          <span class="hobby-stat-label">Views</span>
+        </div>
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">3.2K</span>
+          <span class="hobby-stat-label">Subscribers</span>
+        </div>
+        <div class="hobby-stat">
+          <span class="hobby-stat-value">20</span>
+          <span class="hobby-stat-label">Workouts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
@@ -1621,6 +1892,22 @@ setInterval(updateDynamicMetrics, 300000);
         }
       });
     });
+    // Apply tilt effect to hobby cards
+document.querySelectorAll('.hobby-card.tilt-card').forEach(addTiltEffect);
+
+// Optional: Add video play/pause on hover for better UX
+document.querySelectorAll('.hobby-video-container').forEach(container => {
+  const iframe = container.querySelector('iframe');
+  
+  container.addEventListener('mouseenter', () => {
+    container.style.transform = 'scale(1.02)';
+    container.style.transition = 'transform 0.3s ease';
+  });
+  
+  container.addEventListener('mouseleave', () => {
+    container.style.transform = 'scale(1)';
+  });
+});
   </script>
 </body>
 </html>
